@@ -1,0 +1,33 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>我的个人博客</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">我的博客</a>
+      <div class="nav-links">
+        <a href="index.html">首页</a>
+        <a href="notes.html">学习笔记</a>
+        <a href="#contact">联系我</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="note-editor">
+      <h2>新建笔记</h2>
+      <textarea id="noteContent" placeholder="输入你的笔记..."></textarea>
+      <button onclick="saveNote()">保存笔记</button>
+    </section>
+
+    <section class="note-list" id="notesList">
+      <!-- 笔记列表动态加载 -->
+    </section>
+  </main>
+
+  <script src="blog.js"></script>
+</body>
+
