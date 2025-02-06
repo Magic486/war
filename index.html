@@ -1,25 +1,206 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>叶落的博客</title>
-  </head>
-  <body style="display: flex; flex-direction: column; justify-content: center">
-    <style type="text/css">
-      body {
-        background: url("b942be6db0ad06f064bebe16eb73702.jpg") no-repeat center
-          center fixed;
-        /*兼容浏览器版本*/
-        -webkit-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-      }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>萌宅小站 - 二次元博客</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* 基础样式 */
+        :root {
+            --pink: #ff7eb9;
+            --blue: #6ad8ff;
+            --purple: #b28dff;
+        }
+
+        body {
+            font-family: 'Comic Neue', cursive;
+            background: linear-gradient(135deg, #fff3f7 0%, #e6f9ff 100%);
+            margin: 0;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* 飘落樱花特效 */
+        .sakura {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ffb3d9;
+            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        /* 导航栏 */
+        .nav {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(255, 126, 185, 0.2);
+            backdrop-filter: blur(10px);
+            margin-bottom: 2rem;
+        }
+
+        .nav a {
+            color: var(--pink);
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-family: 'Mochiy Pop One', sans-serif;
+            transition: 0.3s;
+        }
+
+        .nav a:hover {
+            color: var(--purple);
+            transform: scale(1.1);
+        }
+
+        /* 博客主体 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+        }
+
+        /* 文章卡片 */
+        .post-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(178, 141, 255, 0.3);
+        }
+
+        .post-card h2 {
+            color: var(--blue);
+            font-family: 'Mochiy Pop One', sans-serif;
+            border-left: 5px solid var(--pink);
+            padding-left: 1rem;
+        }
+
+        /* 侧边栏 */
+        .sidebar {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1.5rem;
+            border-radius: 15px;
+            height: fit-content;
+        }
+
+        /* 猫耳装饰 */
+        .cat-ears::before,
+        .cat-ears::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 30px;
+            background: var(--pink);
+            top: -15px;
+            border-radius: 50% 50% 0 0;
+        }
+
+        .cat-ears::before { left: 20px; }
+        .cat-ears::after { right: 20px; }
+
+        /* 按钮样式 */
+        .kawaii-button {
+            background: var(--pink);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: 'Mochiy Pop One', sans-serif;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kawaii-button:hover {
+            background: var(--purple);
+            transform: scale(1.05);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
-    <div>
-      <img src="44648103c6cd04864f19a7a85e14421.jpg" width="100px" />
+</head>
+<body>
+    <!-- 飘落樱花 -->
+    <div class="sakura" style="left: 10%; animation-delay: 0s; animation-duration: 8s"></div>
+    <div class="sakura" style="left: 30%; animation-delay: 2s; animation-duration: 10s"></div>
+    <div class="sakura" style="left: 70%; animation-delay: 4s; animation-duration: 9s"></div>
+
+    <nav class="nav">
+        <a href="#">首页</a>
+        <a href="#">动漫杂谈</a>
+        <a href="#">游戏评测</a>
+        <a href="#">关于我</a>
+    </nav>
+
+    <div class="container">
+        <main>
+            <article class="post-card cat-ears">
+                <h2>【新番速报】四月最强黑马出现！</h2>
+                <p>🌸最近发现一部超棒的冷门番！作画精致程度简直剧场版水准，第一集就埋下了超多伏笔...</p>
+                <button class="kawaii-button">阅读更多</button>
+            </article>
+
+            <article class="post-card cat-ears">
+                <h2>🎮Steam夏促必买游戏推荐</h2>
+                <p>⭐这次整理了10款高性价比的二次元游戏，包含RPG、视觉小说等多种类型...</p>
+                <button class="kawaii-button">阅读更多</button>
+            </article>
+        </main>
+
+        <aside class="sidebar">
+            <h3>📌 本周推荐</h3>
+            <p>《莉可丽丝》二创合集</p>
+            <h3>🔖 标签云</h3>
+            <p>#新番推荐 #同人创作 #游戏攻略</p>
+        </aside>
     </div>
-    <div>叶落的博客</div>
-    <div></div>
-  </body>
+
+    <script>
+        // 添加更多飘落樱花
+        function createSakura() {
+            const container = document.body;
+            for (let i = 0; i < 15; i++) {
+                const sakura = document.createElement('div');
+                sakura.className = 'sakura';
+                sakura.style.left = Math.random() * 100 + '%';
+                sakura.style.animationDelay = Math.random() * 5 + 's';
+                sakura.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                container.appendChild(sakura);
+            }
+        }
+        createSakura();
+
+        // 按钮点击动画
+        document.querySelectorAll('.kawaii-button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 100);
+            });
+        });
+    </script>
+</body>
 </html>
