@@ -89,3 +89,319 @@ button:hover {
     display: none;
   }
 }
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--secondary-color);
+  transition: transform 0.3s;
+}
+
+.avatar:hover {
+  transform: rotate(15deg);
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #2d4059dd 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: var(--accent-color);
+  opacity: 0.1;
+  border-radius: 30% 70% 70% 30%;
+  animation: float 20s infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.post-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tag {
+  background: var(--secondary-color);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.8em;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-left: 20px;
+}
+
+.social-links a {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: var(--accent-color);
+}
+
+/* 新增卡片动画 */
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.post-card {
+  animation: cardEntrance 0.6s ease-out;
+  animation-fill-mode: backwards;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  .nav-brand .logo {
+    display: none;
+  }
+
+  .hero {
+    padding: 2rem 0;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+}
+
+.post-card {
+  max-height: 200px;
+  overflow: hidden;
+  transition: max-height 0.6s ease-out;
+}
+
+.post-card.expanded {
+  max-height: 1000px;
+}
+
+.read-more {
+  display: block;
+  margin-top: 1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: auto;
+  background: var(--light-bg);
+}
+
+.read-more i {
+  transition: transform 0.3s;
+}
+
+.post-card.expanded .read-more i {
+  transform: rotate(180deg);
+}
+:root {
+  --primary-color: #070a0e; /* 主色调 */
+  --secondary-color: #d80c0c; /* 辅助色 */
+  --accent-color: #dfa827; /* 强调色 */
+}
+
+/* 设置全局背景 */
+body {
+  background-image: url("assetsbackground.jpg"); /* 替换为您的背景图片路径 */
+  background-size: cover;
+  background-position: flex-start;
+  font-family: "微软雅黑", sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+/* 导航栏样式 */
+.navbar {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar .nav-links a {
+  color: #fff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.navbar .nav-links a:hover {
+  color: #ff69b4; /* 粉色高亮 */
+}
+
+/* 头像样式 */
+.navbar .logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* 主页标题样式 */
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin: 0;
+}
+
+.hero p {
+  font-size: 18px;
+  margin: 10px 0 0;
+}
+
+/* 博客文章卡片样式 */
+.blog-posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.post-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.post-card h2 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.post-card .meta {
+  font-size: 14px;
+  color: #888;
+}
+
+.post-card .meta .date {
+  margin-right: 10px;
+}
+
+.post-card .meta .tag {
+  background: #ff69b4;
+  color: #a54242;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.8em;
+}
+
+.post-card p {
+  font-size: 16px;
+  margin: 10px 0 0;
+}
+
+/* 设置全局字体平滑 */
+body {
+  -webkit-font-smoothing: antialiased; /* 针对 WebKit 内核浏览器（如 Chrome 和 Safari） */
+  -moz-osx-font-smoothing: grayscale; /* 针对 Firefox 浏览器的 macOS 版本 */
+  text-rendering: optimizeLegibility; /* 优化文本的可读性 */
+}
+
+/* 设置笔记内容区域的字体 */
+.note-editor textarea {
+  font-family: "微软雅黑", sans-serif; /* 使用清晰的字体 */
+  font-size: 16px; /* 设置适当的字体大小 */
+  line-height: 1.5; /* 设置行高，提升可读性 */
+  color: #333; /* 设置字体颜色 */
+  background-color: #f9f9f9; /* 设置背景颜色 */
+  border: 1px solid #ccc; /* 设置边框 */
+  border-radius: 4px; /* 设置圆角 */
+  padding: 10px; /* 设置内边距 */
+  width: 100%; /* 设置宽度为 100% */
+  resize: vertical; /* 允许垂直调整大小 */
+}
+
+/* 设置笔记列表的字体 */
+.note-list .note-item {
+  font-family: "微软雅黑", sans-serif; /* 使用清晰的字体 */
+  font-size: 14px; /* 设置适当的字体大小 */
+  line-height: 1.4; /* 设置行高，提升可读性 */
+  color: #555; /* 设置字体颜色 */
+  background-color: #fff; /* 设置背景颜色 */
+  border-left: 4px solid #3498db; /* 设置左边框 */
+  border-radius: 4px; /* 设置圆角 */
+  padding: 10px; /* 设置内边距 */
+  margin-bottom: 10px; /* 设置下边距 */
+}
+
+.note-list {
+  display: grid;
+  grid-gap: 1rem;
+}
+
+.note-item {
+  background: white;
+  padding: 1rem;
+  border-left: 4px solid var(--secondary-color);
+  border-radius: 4px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.note-date {
+  font-size: 0.8em;
+  color: #888;
+}
+
+button {
+  background: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
