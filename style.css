@@ -101,7 +101,7 @@ button:hover {
 body {
   color: var(--text-color);
   background: var(--light-bg) var(--bg-pattern);
-  background-size: 400px;
+  background-size: 1530px;
 }
 
 .nav-brand {
