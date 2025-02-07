@@ -240,7 +240,7 @@ button:hover {
 
 /* 设置全局背景 */
 body {
-  background-image: url("assetsbackground.jpg"); /* 替换为您的背景图片路径 */
+  background-image: url("assets/background.jpg"); /* 替换为您的背景图片路径 */
   background-size: cover;
   background-position: flex-start;
   font-family: "微软雅黑", sans-serif;
