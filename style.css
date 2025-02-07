@@ -1,14 +1,22 @@
 :root {
-  --primary-color: #2c3e50;
-  --secondary-color: #3498db;
-  --light-bg: #f9f9f9;
+  --primary-color: #2c3e50; /* 主色调 */
+  --secondary-color: #3498db; /* 辅助色 */
+  --light-bg: #f9f9f9; /* 背景色 */
+  --accent-color: #ffb400; /* 强调色 */
+  --text-color: #444; /* 文本颜色 */
 }
 
 body {
   font-family: "Segoe UI", sans-serif;
   line-height: 1.6;
   margin: 0;
-  background-color: var(--light-bg);
+  padding: 0;
+  background-image: url("assets/assets/background.jpg"); /* 背景图 */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover; /* 背景图自适应大小 */
+  background-attachment: fixed; /* 固定背景 */
+  color: var(--text-color); /* 文字颜色 */
 }
 
 .navbar {
@@ -84,107 +92,11 @@ button:hover {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 }
 
+/* 响应式设计 */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
   }
-}
-/* 新增样式 */
-:root {
-  --primary-color: #2d4059;
-  --secondary-color: #ea5455;
-  --accent-color: #ffb400;
-  --text-color: #444;
-  --bg-pattern: url("assets/assets/background.jpg");
-}
-
-body {
-  color: var(--text-color);
-  background: var(--light-bg) var(--bg-pattern);
-  background-size: 1530px;
-}
-
-.nav-brand {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2px solid var(--secondary-color);
-  transition: transform 0.3s;
-}
-
-.avatar:hover {
-  transform: rotate(15deg);
-}
-
-.hero {
-  background: linear-gradient(135deg, var(--primary-color) 0%, #2d4059dd 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  width: 200px;
-  height: 200px;
-  background: var(--accent-color);
-  opacity: 0.1;
-  border-radius: 30% 70% 70% 30%;
-  animation: float 20s infinite;
-}
-
-@keyframes float {
-  0% {
-    transform: rotate(0deg) scale(1);
-  }
-  50% {
-    transform: rotate(180deg) scale(1.2);
-  }
-  100% {
-    transform: rotate(360deg) scale(1);
-  }
-}
-
-.post-card {
-  transition: transform 0.3s, box-shadow 0.3s;
-  background: rgba(255, 255, 255, 0.95);
-}
-
-.post-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.tag {
-  background: var(--secondary-color);
-  color: white;
-  padding: 2px 8px;
-  border-radius: 12px;
-  font-size: 0.8em;
-}
-
-.social-links {
-  display: flex;
-  gap: 15px;
-  margin-left: 20px;
-}
-
-.social-links a {
-  color: var(--primary-color);
-  font-size: 1.2rem;
-  transition: color 0.3s;
-}
-
-.social-links a:hover {
-  color: var(--accent-color);
 }
 
 /* 新增卡片动画 */
@@ -204,52 +116,27 @@ body {
   animation-fill-mode: backwards;
 }
 
-/* 响应式优化 */
-@media (max-width: 768px) {
-  .nav-brand .logo {
-    display: none;
-  }
-
-  .hero {
-    padding: 2rem 0;
-  }
-
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-}
-.post-card {
-  max-height: 200px;
-  overflow: hidden;
-  transition: max-height 0.6s ease-out;
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.post-card.expanded {
-  max-height: 1000px;
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-left: 20px;
 }
 
-.read-more {
-  display: block;
-  margin-top: 1rem;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-left: auto;
-  background: var(--light-bg);
+.social-links a {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  transition: color 0.3s;
 }
 
-.read-more i {
-  transition: transform 0.3s;
+.social-links a:hover {
+  color: var(--accent-color);
 }
 
-.post-card.expanded .read-more i {
-  transform: rotate(180deg);
-}
-:root {
-  --primary-color: #2d4059; /* 主色调 */
-  --secondary-color: #ea5455; /* 辅助色 */
-  --accent-color: #ffb400; /* 强调色 */
-}
 .recent-notes {
   margin: 4rem 0;
   padding: 2rem;
@@ -276,4 +163,17 @@ body {
 
 .home-note-item:hover {
   transform: translateX(10px);
+}
+
+/* 头像样式 */
+.avatar {
+  width: 50px; /* 调整头像宽度 */
+  height: 50px; /* 调整头像高度 */
+  border-radius: 50%; /* 确保头像为圆形 */
+  border: 2px solid var(--secondary-color); /* 边框颜色 */
+  transition: transform 0.3s; /* 动画效果 */
+}
+
+.avatar:hover {
+  transform: rotate(15deg); /* 鼠标悬停时旋转头像 */
 }
