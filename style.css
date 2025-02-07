@@ -95,7 +95,7 @@ button:hover {
   --secondary-color: #ea5455;
   --accent-color: #ffb400;
   --text-color: #444;
-  --bg-pattern: url("assets/background.jpg");
+  --bg-pattern: url("assets/assets/background.jpg");
 }
 
 body {
