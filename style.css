@@ -89,6 +89,20 @@ button:hover {
     display: none;
   }
 }
+/* 新增样式 */
+:root {
+  --primary-color: #2d4059;
+  --secondary-color: #ea5455;
+  --accent-color: #ffb400;
+  --text-color: #444;
+  --bg-pattern: url("#");
+}
+
+body {
+  color: var(--text-color);
+  background: var(--light-bg) var(--bg-pattern);
+  background-size: 400px;
+}
 
 .nav-brand {
   display: flex;
@@ -204,7 +218,6 @@ button:hover {
     font-size: 1.8rem;
   }
 }
-
 .post-card {
   max-height: 200px;
   overflow: hidden;
@@ -233,175 +246,34 @@ button:hover {
   transform: rotate(180deg);
 }
 :root {
-  --primary-color: #070a0e; /* 主色调 */
-  --secondary-color: #d80c0c; /* 辅助色 */
-  --accent-color: #dfa827; /* 强调色 */
+  --primary-color: #2d4059; /* 主色调 */
+  --secondary-color: #ea5455; /* 辅助色 */
+  --accent-color: #ffb400; /* 强调色 */
+}
+.recent-notes {
+  margin: 4rem 0;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* 设置全局背景 */
-body {
-  background-image: url("assets/background.jpg"); /* 替换为您的背景图片路径 */
-  background-size: cover;
-  background-position: flex-start;
-  font-family: "微软雅黑", sans-serif;
-  color: #fff;
-  margin: 0;
-  padding: 0;
+.recent-notes h2 {
+  color: var(--secondary-color);
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
-/* 导航栏样式 */
-.navbar {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 10px;
-}
-
-.navbar .logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #fff;
-  text-decoration: none;
-}
-
-.navbar .nav-links a {
-  color: #fff;
-  margin: 0 15px;
-  text-decoration: none;
-  font-size: 16px;
-}
-
-.navbar .nav-links a:hover {
-  color: #ff69b4; /* 粉色高亮 */
-}
-
-/* 头像样式 */
-.navbar .logo img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-/* 主页标题样式 */
-.hero {
-  text-align: center;
-  padding: 50px 20px;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.hero h1 {
-  font-size: 36px;
-  margin: 0;
-}
-
-.hero p {
-  font-size: 18px;
-  margin: 10px 0 0;
-}
-
-/* 博客文章卡片样式 */
-.blog-posts {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
-
-.post-card {
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.post-card h2 {
-  font-size: 20px;
-  margin: 0;
-}
-
-.post-card .meta {
-  font-size: 14px;
-  color: #888;
-}
-
-.post-card .meta .date {
-  margin-right: 10px;
-}
-
-.post-card .meta .tag {
-  background: #ff69b4;
-  color: #a54242;
-  padding: 2px 8px;
-  border-radius: 12px;
-  font-size: 0.8em;
-}
-
-.post-card p {
-  font-size: 16px;
-  margin: 10px 0 0;
-}
-
-/* 设置全局字体平滑 */
-body {
-  -webkit-font-smoothing: antialiased; /* 针对 WebKit 内核浏览器（如 Chrome 和 Safari） */
-  -moz-osx-font-smoothing: grayscale; /* 针对 Firefox 浏览器的 macOS 版本 */
-  text-rendering: optimizeLegibility; /* 优化文本的可读性 */
-}
-
-/* 设置笔记内容区域的字体 */
-.note-editor textarea {
-  font-family: "微软雅黑", sans-serif; /* 使用清晰的字体 */
-  font-size: 16px; /* 设置适当的字体大小 */
-  line-height: 1.5; /* 设置行高，提升可读性 */
-  color: #333; /* 设置字体颜色 */
-  background-color: #f9f9f9; /* 设置背景颜色 */
-  border: 1px solid #ccc; /* 设置边框 */
-  border-radius: 4px; /* 设置圆角 */
-  padding: 10px; /* 设置内边距 */
-  width: 100%; /* 设置宽度为 100% */
-  resize: vertical; /* 允许垂直调整大小 */
-}
-
-/* 设置笔记列表的字体 */
-.note-list .note-item {
-  font-family: "微软雅黑", sans-serif; /* 使用清晰的字体 */
-  font-size: 14px; /* 设置适当的字体大小 */
-  line-height: 1.4; /* 设置行高，提升可读性 */
-  color: #555; /* 设置字体颜色 */
-  background-color: #fff; /* 设置背景颜色 */
-  border-left: 4px solid #3498db; /* 设置左边框 */
-  border-radius: 4px; /* 设置圆角 */
-  padding: 10px; /* 设置内边距 */
-  margin-bottom: 10px; /* 设置下边距 */
-}
-
-.note-list {
-  display: grid;
-  grid-gap: 1rem;
-}
-
-.note-item {
-  background: white;
+.home-note-item {
   padding: 1rem;
-  border-left: 4px solid var(--secondary-color);
+  margin: 1rem 0;
+  background: var(--light-bg);
+  border-left: 3px solid var(--primary-color);
   border-radius: 4px;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
 }
 
-.note-date {
-  font-size: 0.8em;
-  color: #888;
-}
-
-button {
-  background: var(--secondary-color);
-  color: white;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: opacity 0.3s;
-}
-
-button:hover {
-  opacity: 0.9;
+.home-note-item:hover {
+  transform: translateX(10px);
 }
