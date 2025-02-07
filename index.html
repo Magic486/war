@@ -5,22 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>我的个人博客</title>
     <link rel="stylesheet" href="style.css" />
+
+    <!-- 新增字体和图标库 -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
   </head>
   <body>
     <nav class="navbar">
       <div class="container">
-        <a href="#" class="logo">我的博客</a>
+        <div class="nav-brand">
+          <img src="assetsavatar.jpg" class="avatar" alt="头像" />
+          <a href="#" class="logo">叶落的博客</a>
+        </div>
         <div class="nav-links">
-          <a href="index.html">首页</a>
-          <a href="notes.html">学习笔记</a>
-          <a href="#contact">联系我</a>
+          <a href="index.html"><i class="fas fa-home"></i> 首页</a>
+          <a href="notes.html"><i class="fas fa-book"></i> 笔记</a>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="contact.html"><i class="fab fa-qq"></i></a>
+          </div>
         </div>
       </div>
     </nav>
 
     <header class="hero">
       <div class="container">
-        <h1>欢迎来到我的知识库</h1>
+        <h1>欢迎来到我的个人博客</h1>
         <p>记录技术成长与学习心得</p>
       </div>
     </header>
@@ -29,9 +45,11 @@
       <section class="blog-posts" id="posts">
         <!-- 博客文章动态加载 -->
       </section>
+      <section class="note-list" id="noteList">
+        <!-- 笔记列表动态加载 -->
+      </section>
     </main>
 
     <script src="blog.js"></script>
   </body>
 </html>
-
