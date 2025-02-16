@@ -1,22 +1,19 @@
 :root {
-  --primary-color: #2c3e50; /* 主色调 */
-  --secondary-color: #3498db; /* 辅助色 */
-  --light-bg: #f9f9f9; /* 背景色 */
-  --accent-color: #ffb400; /* 强调色 */
-  --text-color: #444; /* 文本颜色 */
+  --primary-color: #2d4059;
+  --secondary-color: #ea5455;
+  --accent-color: #ffb400;
+  --text-color: #444;
+  --light-bg: #f9f9f9;
+  --bg-pattern: url("assets/assets/background.jpg");
 }
 
 body {
-  font-family: "Segoe UI", sans-serif;
+  font-family: "Noto Sans SC", sans-serif;
   line-height: 1.6;
   margin: 0;
-  padding: 0;
-  background-image: url("assets/assets/background.jpg"); /* 背景图 */
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover; /* 背景图自适应大小 */
-  background-attachment: fixed; /* 固定背景 */
-  color: var(--text-color); /* 文字颜色 */
+  color: var(--text-color);
+  background: var(--light-bg) var(--bg-pattern);
+  background-size: 1530px;
 }
 
 .navbar {
@@ -31,11 +28,56 @@ body {
   padding: 0 20px;
 }
 
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--secondary-color);
+  transition: transform 0.3s;
+}
+
+.avatar:hover {
+  transform: rotate(15deg);
+}
+
 .hero {
-  background: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color) 0%, #2d4059dd 100%);
   color: white;
   padding: 4rem 0;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: var(--accent-color);
+  opacity: 0.1;
+  border-radius: 30% 70% 70% 30%;
+  animation: float 20s infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
 }
 
 .blog-posts {
@@ -45,10 +87,26 @@ body {
 }
 
 .post-card {
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: cardEntrance 0.6s ease-out;
+  animation-fill-mode: backwards;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tag {
+  background: var(--secondary-color);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.8em;
 }
 
 .note-editor {
@@ -92,51 +150,6 @@ button:hover {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-}
-
-/* 新增卡片动画 */
-@keyframes cardEntrance {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.post-card {
-  animation: cardEntrance 0.6s ease-out;
-  animation-fill-mode: backwards;
-}
-
-.post-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.social-links {
-  display: flex;
-  gap: 15px;
-  margin-left: 20px;
-}
-
-.social-links a {
-  color: var(--primary-color);
-  font-size: 1.2rem;
-  transition: color 0.3s;
-}
-
-.social-links a:hover {
-  color: var(--accent-color);
-}
-
 .recent-notes {
   margin: 4rem 0;
   padding: 2rem;
@@ -165,15 +178,107 @@ button:hover {
   transform: translateX(10px);
 }
 
-/* 头像样式 */
-.avatar {
-  width: 50px; /* 调整头像宽度 */
-  height: 50px; /* 调整头像高度 */
-  border-radius: 50%; /* 确保头像为圆形 */
-  border: 2px solid var(--secondary-color); /* 边框颜色 */
-  transition: transform 0.3s; /* 动画效果 */
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-left: 20px;
 }
 
-.avatar:hover {
-  transform: rotate(15deg); /* 鼠标悬停时旋转头像 */
+.social-links a {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  transition: color 0.3s;
 }
+
+.social-links a:hover {
+  color: var(--accent-color);
+}
+
+.note-item small {
+  display: block;
+  color: var(--accent-color);
+  margin-top: 0.5rem;
+  font-size: 0.8em;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    padding: 2rem 0;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .nav-brand .logo {
+    display: none;
+  }
+}
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 新增笔记相关样式 */
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.note-date {
+  color: var(--primary-color);
+  font-size: 0.9em;
+}
+
+.note-content {
+  background: var(--light-bg);
+  padding: 1rem;
+  border-radius: 4px;
+  line-height: 1.7;
+}
+
+.home-note-item {
+  position: relative;
+  transition: all 0.3s;
+}
+
+.home-note-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.note-preview {
+  color: #666;
+  margin: 0.5rem 0;
+}
+
+/* 加载状态提示 */
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: var(--secondary-color);
+}
+
+/* 空状态提示 */
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  border: 2px dashed var(--secondary-color);
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
