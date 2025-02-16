@@ -1,40 +1,53 @@
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>我的个人博客</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <nav class="navbar">
-    <div class="container">
-      <div class="nav-brand">
-        <img src="assets/assets/avatar.jpg" class="avatar" alt="头像" />
-        <a href="#" class="logo">Tech Explorer</a>
-      </div>
-      <div class="nav-links">
-        <a href="index.html"><i class="fas fa-home"></i> 首页</a>
-        <a href="notes.html"><i class="fas fa-book"></i> 笔记</a>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-github"></i></a>
-          <a href="#"><i class="fab fa-weixin"></i></a>
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>学习笔记</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-brand">
+          <img src="assets/avatar.jpg" class="avatar" alt="头像" />
+          <a href="#" class="logo">个人博客</a>
+        </div>
+        <div class="nav-links">
+          <a href="index.html"><i class="fas fa-home"></i> 首页</a>
+          <a href="notes.html"><i class="fas fa-book"></i> 笔记</a>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-weixin"></i></a>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <main class="container">
-    <section class="note-editor">
-      <h2>新建笔记</h2>
-      <textarea id="noteContent" placeholder="输入你的笔记..."></textarea>
-      <button onclick="saveNote()">保存笔记</button>
-    </section>
+    <main class="container">
+      <section class="note-editor">
+        <h2>新建笔记</h2>
+        <textarea id="noteContent" placeholder="输入你的笔记..."></textarea>
+        <button onclick="saveNote()">保存笔记</button>
+      </section>
+      <section class="note-list">
+        <h2>全部笔记</h2>
+        <div id="notesList">
+          <div class="loading">加载中...</div>
+        </div>
+      </section>
+    </main>
 
-    <section class="note-list" id="notesList">
-      <!-- 笔记列表动态加载 -->
-    </section>
-  </main>
-
-  <script src="blog.js"></script>
-</body>
-
-
+    <script src="blog.js"></script>
+  </body>
+</html>
